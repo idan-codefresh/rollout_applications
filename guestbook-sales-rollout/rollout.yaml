@@ -16,10 +16,10 @@ spec:
       containers:
 #        0.1 , 0.2 , 0.3 - missing (might be used for degraded test)
 #        gcr.io/heptio-images/ks-guestbook-demo:0.1
-        - image: gcr.io/heptio-images/ks-guestbook-demo:0.1 
-          name: guestbook-sales
+        - image: quay.io/repository/idan_arbel/demo:1.1
+          name: idan-demo
           ports:
-            - name: http
+            - name: https
               containerPort: 8080
               protocol: TCP
   minReadySeconds: 30
