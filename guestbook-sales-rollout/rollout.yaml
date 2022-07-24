@@ -25,10 +25,10 @@ spec:
   minReadySeconds: 30
   strategy:
     canary:
-      analysis:
-        templates:
-          - templateName: background-analysis
-        startingStep: 1
+     # analysis:
+     #   templates:
+     #     - templateName: background-analysis
+     #   startingStep: 1
       steps:
         - setWeight: 25
         - pause: {duration: 20s}
@@ -37,14 +37,14 @@ spec:
             - templateName: prometheus-analysis
         - setWeight: 75
         - pause: {duration: 15s}
-        - experiment:
-            duration: 15s
-            templates:
-            - name: canary
-              specRef: canary
+      #  - experiment:
+      #      duration: 15s
+      #      templates:
+      #      - name: canary
+      #        specRef: canary
             # This experiment performs its own analysis by referencing one or more AnalysisTemplates
             # here. The success or failure of these runs will progress or abort the rollout respectively.
-            analyses:
-            - name: random-fail-experiment
-              templateName: experiment-analysis
-              requiredForCompletion: true
+      #      analyses:
+      #      - name: random-fail-experiment
+      #       templateName: experiment-analysis
+      #        requiredForCompletion: true
